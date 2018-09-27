@@ -1,0 +1,31 @@
+{
+  "name": "calendar",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "pretty-typed-react-starter": "0.2.27",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "scripts": {
+    "buildcss": "node-sass-chokidar src/ -o src/",
+    "watchcss": "npm run buildcss && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "startjs": "pretty-typed-react-starter start",
+    "start": "npm-run-all -p watchcss startjs",
+    "build": "npm run buildcss && pretty-typed-react-starter build",
+    "eject": "pretty-typed-react-starter eject"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "@types/node": "8.10.10",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-loadable": "^5.4.1",
+    "@types/react-router-dom": "^4.3.1",
+    "prettier": "^1.14.3",
+    "typescript": "^3.0.3"
+  }
+}

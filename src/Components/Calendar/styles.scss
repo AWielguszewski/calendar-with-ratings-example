@@ -1,0 +1,115 @@
+html {
+    box-sizing: border-box;
+}
+
+.calendar {
+    padding: 1rem;
+    width: calc(7 * 3rem + 3rem );
+    border: 2px solid #EEEEEE;
+    &-price {
+        margin: 0 0 0.5rem 0;
+        font-size: 0.7rem;
+        strong {
+            font-size: 1.3rem;
+        }
+    }
+    &-ratings{
+        margin: 0;
+        font-size: 0.9rem;
+        span {
+            font-size: 0.9rem;
+            color :#EEEEEE;
+            &.checked {
+                color: #51ABB2;
+            }
+        }
+    }
+    hr {
+        border: 0.5px solid #EEEEEE;
+        margin: 2rem 0;
+    }
+    &-buttons {
+        p {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        &-cnt {
+            border: 1px solid #EEEEEE;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            button {
+                width: 40%;
+                margin: 0.4rem 0;
+                height: 3rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                outline: none;
+                &.selected {
+                    background-color: #76DFE6;
+                    border-radius: 3px;
+                }
+                &:disabled {
+                    cursor: not-allowed;
+                }
+                strong {
+                    font-size: 0.9rem;
+                    color: #51ABB2;
+                }
+            }
+        }
+    }
+    &-cal {
+        border: 1px solid #EEEEEE;
+        border-top: none;
+        padding: 1rem;
+        &-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            div {
+                border: 1px solid #EEEEEE;
+                padding: 1rem 1rem;
+                text-align: center;
+                cursor: pointer;
+            }
+            p {
+                font-weight: 700;
+                font-size: 1.2rem;
+            }
+        }
+        table {
+            border-collapse: collapse;
+            th {
+                font-weight: 500;
+            }
+        }
+        &-day {
+            text-align: center;
+            height: 3rem;
+            width: 3rem;
+            border: 1px solid #EEE;
+            &.selected {
+                background-color: #51ABB2;
+            }
+            button {
+                cursor: pointer;
+                height: 100%;
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                font-weight: 900;
+                &:disabled {
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}
