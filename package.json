@@ -13,19 +13,48 @@
     "startjs": "pretty-typed-react-starter start",
     "start": "npm-run-all -p watchcss startjs",
     "build": "npm run buildcss && pretty-typed-react-starter build",
-    "eject": "pretty-typed-react-starter eject"
+    "eject": "pretty-typed-react-starter eject",
+    "test": "jest"
   },
   "prettier": {
     "semi": false,
     "singleQuote": true
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.14",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/jest": "^23.3.5",
     "@types/node": "8.10.10",
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
     "@types/react-loadable": "^5.4.1",
     "@types/react-router-dom": "^4.3.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "jest": "^23.6.0",
     "prettier": "^1.14.3",
+    "ts-jest": "^23.10.4",
     "typescript": "^3.0.3"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/?(*.)+(spec|test).ts?(x)"
+    ]
   }
 }

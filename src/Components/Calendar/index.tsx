@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import { Props, State, CALENDAR_TYPE } from './types'
 import './styles.css'
 
-export default class Calendar extends Component<Props, State> {
+export default class Calendar extends React.Component<Props, State> {
     state = {
         currentDate: new Date(),
         calendarType: CALENDAR_TYPE.IN,
@@ -30,12 +30,12 @@ export default class Calendar extends Component<Props, State> {
         return <div className="calendar-buttons">
             <p>Dates</p>
             <div className="calendar-buttons-cnt">
-                <button className={calendarOpen && calendarType === CALENDAR_TYPE.IN ? 'selected' : ''} onClick={this.onCheckIn}>
+                <button id="inBtn" className={calendarOpen && calendarType === CALENDAR_TYPE.IN ? 'selected' : ''} onClick={this.onCheckIn}>
                     <span>Check In</span>
                     {checkIn && <strong>{(checkIn as Date).toLocaleDateString()}</strong>}
                 </button>
                 <span className="fa fa-long-arrow-right" />
-                <button disabled={!checkIn} className={calendarOpen && calendarType === CALENDAR_TYPE.OUT ? 'selected' : ''} onClick={this.onCheckOut}>
+                <button id="outBtn" disabled={!checkIn} className={calendarOpen && calendarType === CALENDAR_TYPE.OUT ? 'selected' : ''} onClick={this.onCheckOut}>
                     <span>Check Out</span>
                     {checkOut && <strong>{(checkOut as Date).toLocaleDateString()}</strong>}
                 </button>
@@ -73,9 +73,9 @@ export default class Calendar extends Component<Props, State> {
         }
         return <div className="calendar-cal">
             <div className="calendar-cal-header">
-                <div className="fa fa-long-arrow-left" onClick={this.subMonth} />
-                <p>{currentDate.toLocaleString("en-us", { month: "long" })} {currentDate.getFullYear()}</p>
-                <div className="fa fa-long-arrow-right" onClick={this.addMonth} />
+                <div id="calendarLeftArrow" className="fa fa-long-arrow-left" onClick={this.subMonth} />
+                <p id="calendarTitle" >{currentDate.toLocaleString("en-us", { month: "long" })} {currentDate.getFullYear()}</p>
+                <div id="calendarRightArrow" className="fa fa-long-arrow-right" onClick={this.addMonth} />
             </div>
             <table>
                 <tbody>
@@ -110,7 +110,7 @@ export default class Calendar extends Component<Props, State> {
         if (calendarType === CALENDAR_TYPE.OUT && checkOut)
             isSelected = date.toLocaleDateString() === (checkOut as Date).toLocaleDateString()
         return <td key={date.valueOf()} className={`calendar-cal-day ${isSelected && 'selected'}`} >
-            <button disabled={!isAvailable} onClick={() => this.onDateSelect(date)}>{date.getDate()}</button>
+            <button className='calendar-cal-day-btn' disabled={!isAvailable} onClick={() => this.onDateSelect(date)}>{date.getDate()}</button>
         </td>
     }
 
